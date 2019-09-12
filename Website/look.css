@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'Px Grotesk Bold';
+	src: url('Px Grotesk Bold.ttf') format('truetype-variations');
+	font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Px Grotesk Regular';
+	src: url('Px Grotesk Regular.ttf') format('truetype-variations');
+	font-weight: normal;
+    font-style: normal;
+}
+body {
+    background-color:lightgray;
+  }
+
+p {
+    font-family: "Px Grotesk Regular";
+    font-size: 20px;
+  }
+
+.titel{
+    font-family: "Px Grotesk Bold";
+    color: white;
+    text-align: center;
+    font-size: 8vw;
+  }
+
+.beschreibung{
+
+text-align: justify;
+padding-left: 74vw;
+padding-right: 1vw;
+
+}
+.promo{
+    float: left;
+    position: relative;
+    margin: auto;
+    padding-left: 2vw;
+    padding-bottom: 1vh;
+    width: 71%;
+
+
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  canvas {
+    display: block;
+  }
+  
+  button {
+      background-color:#ffffff;
+      display:inline-block;
+      cursor:pointer;
+      color:#44c767;
+      border:1;
+      border-color:#44c767;
+      border-style:solid;
+      font-size:17px;
+      padding:11px 55px;
+      text-decoration:none;
+      margin:20px;
+    
+  }
+  button:hover {
+    background-color:#44c767;
+    color:#ffffff;
+  }
+  button:active {
+    background-color:#ffffff;
+    color:#44c767;
+  }
+  
+  

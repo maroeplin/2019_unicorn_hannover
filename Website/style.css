@@ -1,0 +1,31 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+button {
+	background-color:#ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#44c767;
+	border:1;
+    border-color:#44c767;
+    border-style:solid;
+	font-size:17px;
+	padding:11px 55px;
+	text-decoration:none;
+    margin:20px;
+  
+}
+button:hover {
+  background-color:#44c767;
+  color:#ffffff;
+}
+button:active {
+  background-color:#ffffff;
+  color:#44c767;
+}
+
