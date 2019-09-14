@@ -17,3 +17,7 @@
 
 **The Neurologist Who Hacked His Brain—And Almost Lost His Mind**
 [The Neurologist Who Hacked His Brain—And Almost Lost His Mind](https://www.wired.com/2016/01/phil-kennedy-mind-control-computer/amp)
+
+**Measuring Brain Data, Open-Source Style**
+App, in der man über EEG lernt
+[Brain-Machine Interfaces Could Give Us All Superpowers | WIRED](https://medium.com/read-write-participate/eeg-101-7ad8be02afa0)
