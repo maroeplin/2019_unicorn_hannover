@@ -2,7 +2,7 @@
 
 Table tabelle;
 
-String[] eeg1, eeg2, eeg3, eeg4, alpha1, alpha2, alpha3, alpha4, beta1, beta2, beta3, beta4 ;
+String[] eeg1, eeg2, eeg3, eeg4, alpha1, alpha2, alpha3, alpha4, beta1, beta2, beta3, beta4,delta1, delta2, delta3, delta4 , theta1, theta2, theta3, theta4, gamma1, gamma2, gamma3, gamma4 ;
 int x;
 float xPos=100;
 int test;
@@ -48,11 +48,27 @@ void setup() {
   alpha2 =muse_tabelle.getStringColumn("Alpha_AF7");
   alpha3 =muse_tabelle.getStringColumn("Alpha_AF8"); 
   alpha4 =muse_tabelle.getStringColumn("Alpha_TP10");
-
+  
   beta1 =muse_tabelle.getStringColumn("Beta_TP9"); 
   beta2 =muse_tabelle.getStringColumn("Beta_AF7");
   beta3 =muse_tabelle.getStringColumn("Beta_AF8"); 
   beta4 =muse_tabelle.getStringColumn("Beta_TP10");
+
+  delta1 =muse_tabelle.getStringColumn("Delta_TP9"); 
+  delta2 =muse_tabelle.getStringColumn("Delta_AF7");
+  delta3 =muse_tabelle.getStringColumn("Delta_AF8"); 
+  delta4 =muse_tabelle.getStringColumn("Delta_TP10");
+  
+  theta1 =muse_tabelle.getStringColumn("Theta_TP9"); 
+  theta2 =muse_tabelle.getStringColumn("Theta_AF7");
+  theta3 =muse_tabelle.getStringColumn("Theta_AF8"); 
+  theta4 =muse_tabelle.getStringColumn("Theta_TP10");
+  
+  
+  gamma1 =muse_tabelle.getStringColumn("Gamma_TP9"); 
+  gamma2 =muse_tabelle.getStringColumn("Gamma_AF7");
+  gamma3 =muse_tabelle.getStringColumn("Gamma_AF8"); 
+  gamma4 =muse_tabelle.getStringColumn("Gamma_TP10");
 
   // als naechstes koennen wir aus der csv alle andere Werte importieren
 }
