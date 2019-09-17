@@ -57,7 +57,7 @@ cam = new QueasyCam(this);
 
 
 void draw() {
-
+  
   flying -= 0.1;
 
   float yoff = flying;
@@ -82,9 +82,10 @@ void draw() {
 
 
   background(25);
-  stroke(0);
+  stroke(255);
   strokeWeight(0.5);
   //noFill();
+
 
   translate(width/2, height/2+50);
   rotateX(PI/3);
