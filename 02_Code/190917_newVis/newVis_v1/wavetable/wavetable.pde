@@ -83,7 +83,7 @@ void draw() {
 
   background(25);
   
-  strokeWeight(0.5);
+  strokeWeight(1);
  noFill();
 
 
@@ -93,7 +93,7 @@ void draw() {
   for (int y = 0; y < rows-1; y++) {
     beginShape(TRIANGLE_STRIP);
     for (int x = 0; x < cols; x++) {
-      stroke(map(int(eeg1[x+y*cols]),0,3000,0,1)*255,map(int(eeg1[x+y*cols]),0,3000,0,1)*255,map(int(eeg1[x+y*cols]),0,3000,0,1)*255);
+      stroke(map(float(eeg1[x+y*cols]),0,3000,0,1)*255,map(float(eeg1[x+y*cols]),0,3000,0,1)*255,map(float(eeg1[x+y*cols]),0,3000,0,1)*255);
       vertex(x*scl, y*scl, terrain[x][y]);
       vertex(x*scl, (y+1)*scl, terrain[x][y+1]);
       //rect(x*scl, y*scl, scl, scl);
