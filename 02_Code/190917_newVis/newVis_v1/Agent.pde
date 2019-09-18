@@ -16,20 +16,20 @@ class Agent {
     y=d*sin(radians( anfangswinkel+ winkel)) + height/2;
     winkel=winkel+0.1;
 
-    if ( blink) {
-      if (d>=4) {
-        d=d-4;
-      } else {
-        d=0;
-      }
-    }
+    //if ( blink) {
+    //  if (d>=4) {
+    //    d=d-4;
+    //  } else {
+    //    d=0;
+    //  }
+    //}
 
-    if ( !blink) {
-      if (d<=430) {
-        d=d+4;
-      } else {
-        d=430;
-      }
-    }
+    //if ( !blink) {
+    //  if (d<=430) {
+    //    d=d+4;
+    //  } else {
+    //    d=430;
+    //  }
+    //}
   }
 }
