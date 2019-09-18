@@ -3,7 +3,7 @@ final static int N = 400;
  
 // colors (some of them taken from http://www.colourlovers.com/pattern/5526827/bleak
 final static color[] cols = { 
-  #FF8A00, #FFD200, #749D9D, #FCF5B3, #B39500, #272429
+  #FFFFFF, #0fffff, #5b00f7, #fa61cc, #08fc3d, #a3fc08
 };
  
 // collection of all particles
@@ -23,19 +23,19 @@ class Particle {
   float age;
   // some random color
   color c = cols[(int)random(cols.length)];
-  
+  float r;
   // mood factor
   float mood;
  
   void reset() {
     // distribute initial point on the ring, more near the outer edge, distorted
     float angle = random(TWO_PI);
-    float r = (1.0*randomGaussian() + (width/2-100)*(1.0-pow(random(1.0), 7.0)))/5;
+     r = (1.0*randomGaussian() + (width/2-100)*(1.0-pow(random(1.0), 7.0)))/6;
     //float r = (1.0*randomGaussian() + (width/2-100)*(1.0-pow(random(1.0), 7.0)))/3;
     x = cos(angle)*r;
     y = sin(angle)*r;
     // set random age
-    age = (int)random(1000, 2000);
+    age = (int)random(100, 1000);
     calcMood();
   }
  
@@ -48,11 +48,15 @@ class Particle {
   // update position with externally calculated speed
   // check also age
   void update() {
-    if(--age < 400) {
+    if(mousePressed){
+    reset();
+    }
+    if(age < 0) {
       reset();
     } else {
-      x += dx;
-      y += dy;
+      
+      x -= random(dx,-dx/0.4);
+      y -= random(dy,-dy/0.4);
       calcMood();
     }
   }

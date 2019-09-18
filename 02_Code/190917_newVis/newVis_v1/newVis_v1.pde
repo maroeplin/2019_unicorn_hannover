@@ -1,4 +1,6 @@
+import queasycam.*;
 
+QueasyCam cam;
 
 Table tabelle;
 
@@ -32,13 +34,20 @@ float mapEeg4 =0;
 float mapBeta;
 
 boolean blink;
-Agent agent_green = new Agent(0);
-Agent agent_grey = new Agent(180);
+
+boolean agent1;
+Agent agent_green = new Agent(0,agent1);
+Agent agent_grey = new Agent(180,!agent1);
 
 
 void setup() {
-  fullScreen();
+  size(1920,1080, P2D);
   background(20, 20, 20);
+  
+    cam = new QueasyCam(this);
+  cam.speed = 0.3;              // default is 3
+  cam.sensitivity = 0.2;      // default is 2
+  perspective(PI/3, (float)width/height, 0.01, 40000);
 
   /* start oscP5, listening for incoming messages at port 12000 */
   oscP5 = new OscP5(this, 5000);
@@ -152,7 +161,7 @@ void draw() {
 
 
       translate(agent_green.x, agent_green.y);
-
+      //rotateY(radians(90));
 
       // translate(mouseX,mouseY);
       for (Particle p : particles) {
@@ -249,6 +258,7 @@ void draw() {
 
       pushMatrix();
       translate(agent_grey.x, agent_grey.y);
+      //rotateY(radians(90));
       rotate(radians(map(float(beta1[x]), 0, 1, 0, 360)));
       stroke(htg, 40);
       strokeWeight(1);
@@ -352,6 +362,6 @@ void keyPressed() {
 
   if (key == 's' || key == 'S') {
 
-    saveTable(csv_muse, "data/marks.csv");
+    //saveTable(csv_muse, "data/marks.csv");
   }
 }
