@@ -58,7 +58,7 @@ cam = new QueasyCam(this);
 
 void draw() {
   
-  flying -= 0.1;
+  flying += 2;
 
   float yoff = flying;
   for (int y = 0; y < rows; y++) {
@@ -82,9 +82,9 @@ void draw() {
 
 
   background(25);
-  stroke(255);
+  
   strokeWeight(0.5);
-  //noFill();
+ noFill();
 
 
   translate(width/2, height/2+50);
@@ -93,7 +93,7 @@ void draw() {
   for (int y = 0; y < rows-1; y++) {
     beginShape(TRIANGLE_STRIP);
     for (int x = 0; x < cols; x++) {
-      
+      stroke(map(int(eeg1[x+y*cols]),0,3000,0,1)*255,map(int(eeg1[x+y*cols]),0,3000,0,1)*255,map(int(eeg1[x+y*cols]),0,3000,0,1)*255);
       vertex(x*scl, y*scl, terrain[x][y]);
       vertex(x*scl, (y+1)*scl, terrain[x][y+1]);
       //rect(x*scl, y*scl, scl, scl);
