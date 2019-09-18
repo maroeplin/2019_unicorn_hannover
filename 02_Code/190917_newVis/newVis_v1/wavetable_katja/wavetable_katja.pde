@@ -82,7 +82,7 @@ void draw() {
 
 
 
-  background(25);
+  background(10);
   
   strokeWeight(0.5);
  noFill();

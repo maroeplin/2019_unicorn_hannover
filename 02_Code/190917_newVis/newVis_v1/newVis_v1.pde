@@ -91,6 +91,7 @@ void draw() {
   //background(0);
   
   agent_grey.rumkreisen();
+  agent_green.rumkreisen();
   if ( x >24000) {
 
     noLoop();
@@ -116,13 +117,14 @@ void draw() {
   float mapBeta=map(float(beta1[x]), 0, 1, 100, 800);
   ellipse(xPos, mapBeta, 3, 3);
 
-  translate(width/2, height/3);
+  //translate(width/2, height/3);
   strokeWeight(0);
   fill(255, 0, 0);
 
 
   float schlucht=0;//map(sin(xPos),-1,1,0,width);
-  groesse=map(xPos,0,width,0,800);
+  //groesse=map(xPos,0,width,0,800);
+  groesse=30;
   //background(htg);
   x=x+1;
   //println(eeg1[x]);
@@ -142,6 +144,11 @@ if (elements[x].equals("/muse/elements/blink")){
 
     //if (lastSum<grenze) {
       if (blink) {
+        
+        pushMatrix();
+        
+        translate(agent_green.x, agent_green.y);
+        
       htg=color(10, 200, 100);
       test=test-1;
 
@@ -182,17 +189,16 @@ if (elements[x].equals("/muse/elements/blink")){
       ix = map(r * cos(radians(360/4)*4), -1, 1, 0, 2);
       y = map(r * sin(radians(360/4)*4), -1, 1, 0, 2);
       curveVertex(ix+schlucht, y);
-
-
-
       curveVertex(0, 0);
       endShape(CLOSE);
+      
+      popMatrix();
     } else {
       htg=color(145);
       test=test+1;
 
       pushMatrix();
-      translate(50+xPos/2, 50+xPos/2);
+      translate(agent_grey.x, agent_grey.y);
       rotate(radians(map(float(beta1[x]), 0, 1, 0, 360)));
       stroke(htg, 40);
       strokeWeight(1);
