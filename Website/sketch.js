@@ -293,3 +293,94 @@ function loadTable3(){
   eeg7 = tabelle3.getColumn("EEG 7"); //
   eeg8 = tabelle3.getColumn("EEG 8");
 }
+
+
+
+
+
+
+//MUSE DATA
+let muse_tabelle;
+let eeg1, eeg2, eeg3, eeg4, alpha1, alpha2, alpha3, alpha4, beta1, beta2, beta3, beta4, delta1, delta2, delta3, delta4, theta1, theta2, theta3, theta4, gamma1, gamma2, gamma3, gamma4, elements ;
+let mapEeg1, mapEeg2, mapEeg3, mapEeg4, mapBeta;
+
+let x; //FRAMEZAEHLER 
+let lastSum; // SUMME LETZTER EEG-WERTE
+
+// AGENT INFO
+let i_am_cyan;
+let agent_magenta = new Agent(0, !i_am_cyan);
+let agent_cyan = new Agent(180, i_am_cyan);
+let agent_color;
+let agent_size=height/5;
+
+let blink=false;
+
+
+function setup() {
+
+  createCanvas(windowWidth, windowHeight*0.9);
+  background(20, 20, 20);
+  noCursor();
+
+  import_csv();
+
+}
+
+
+function draw() { 
+  //COUNTER
+  x=x+1;
+
+  //HINTERGRUND
+  noStroke();
+  fill(0, 0);
+  rect(0, 0, width, height);
+
+  //FORMEN ZEICHNEN
+  agent_cyan.rumkreisen();
+  agent_cyan.aktivePos();
+  agent_magenta.rumkreisen();
+  agent_magenta.aktivePos();
+
+  // Werte aus der Tabelle auf passende Größen mappen
+  if (int(eeg1[x]) <= 1500) { // mit der if-Abfrage werden die Ausreißer ausgefiltert
+    mapEeg1=map(float(eeg1[x]), 500, 1000, 0, 1000);
+  } 
+  if (int(eeg2[x]) <= 1500) {
+    mapEeg2=map(float(eeg2[x]), 500, 1000, 0, 1000);
+  } 
+  if (int(eeg3[x]) <= 1500) {
+    mapEeg3=map(float(eeg3[x]), 500, 1000, 100, 1000);
+  } 
+  if (int(eeg4[x]) <= 1500) {
+    mapEeg4=map(float(eeg4[x]), 500, 1000, 100, 1000);
+  } 
+  mapBeta=map(float(beta1[x]), 0, 1, 100, 800);
+
+  // Geblinzelt?
+  if (elements[x].equals("/muse/elements/blink")) {
+    blink=!blink;
+  }
+
+
+  // AM ENDE DER CSV-TABELLE AUFHÖREN
+  if ( x >24000) {
+    reset();
+  }
+}
+
+// SKETCH ZURÜCKSETZEN
+function reset() {
+  background(20, 20, 20);
+  x=0;
+  agent_cyan.anfangswinkel=180;
+  agent_magenta.anfangswinkel=0;
+}
+
+function keyPressed() {
+
+  if (key == 'b') {
+    blink=!blink;
+  }
+}
