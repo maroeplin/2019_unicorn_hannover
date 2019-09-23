@@ -17,21 +17,26 @@ let agent_size;
 let blink;
 
 function preload() {
-    import_csv();
+    
+    muse_tabelle = loadTable(
+    'muse_data_katja.csv',
+    'csv',
+    'header');
+    
 }
 
 function setup() {
 
   createCanvas(windowWidth, windowHeight * 0.9);
-  background(20, 20, 20);
-
+  background(30, 30, 30);
+  import_csv();
+  x=0;
+    
   blink=true;
   i_am_cyan=true;
   agent_magenta = new Agent(0, !i_am_cyan);
   agent_cyan = new Agent(180, i_am_cyan);
-  agent_size = windowHeight / 5;
-
-
+  agent_size = windowWidth / 50;
 }
 
 
@@ -44,7 +49,7 @@ function draw() {
   fill(0, 0);
   rect(0, 0, windowWidth, windowHeight);
 
-    print(eeg1[x]);
+    
   // Werte aus der Tabelle auf passende Größen mappen
   if (int(eeg1[x]) <= 1500) { // mit der if-Abfrage werden die Ausreißer ausgefiltert
     mapEeg1 = map(float(eeg1[x]), 500, 1000, 0, 1000);
@@ -68,9 +73,15 @@ function draw() {
   agent_magenta.aktivePos();
 
   // Geblinzelt?
-  //if (elements[x].equals("/muse/elements/blink")) {
-  //  blink = !blink;
-  //}
+    console.log("Blink " + elements[x]);
+    
+    if (elements[x]!= null){
+        if (elements[x] == "/muse/elements/blink") {
+        blink = !blink;
+  }
+        
+    }
+
 
 
   // AM ENDE DER CSV-TABELLE AUFHÖREN
@@ -96,40 +107,42 @@ function keyPressed() {
 
 
 function import_csv() {
-  muse_tabelle = loadTable('muse_data_katja.csv', 'csv','header');
 
-  eeg1 = muse_tabelle.getColumn("RAW_TP9");
-  eeg2 = muse_tabelle.getColumn("RAW_AF7");
-  eeg3 = muse_tabelle.getColumn("RAW_AF8");
-  eeg4 = muse_tabelle.getColumn("RAW_TP10");
+eeg1 = muse_tabelle.getColumn('RAW_TP9');
+  eeg2 = muse_tabelle.getColumn('RAW_AF7');
+  eeg3 = muse_tabelle.getColumn('RAW_AF8');
+  eeg4 = muse_tabelle.getColumn('RAW_TP10');
 
-  alpha1 = muse_tabelle.getColumn("Alpha_TP9");
-  alpha2 = muse_tabelle.getColumn("Alpha_AF7");
-  alpha3 = muse_tabelle.getColumn("Alpha_AF8");
-  alpha4 = muse_tabelle.getColumn("Alpha_TP10");
+ 
+  alpha1 = muse_tabelle.getColumn('Alpha_TP9');
+  alpha2 = muse_tabelle.getColumn('Alpha_AF7');
+  alpha3 = muse_tabelle.getColumn('Alpha_AF8');
+  alpha4 = muse_tabelle.getColumn('Alpha_TP10');
 
-  beta1 = muse_tabelle.getColumn("Beta_TP9");
-  beta2 = muse_tabelle.getColumn("Beta_AF7");
-  beta3 = muse_tabelle.getColumn("Beta_AF8");
-  beta4 = muse_tabelle.getColumn("Beta_TP10");
+  beta1 = muse_tabelle.getColumn('Beta_TP9');
+  beta2 = muse_tabelle.getColumn('Beta_AF7');
+  beta3 = muse_tabelle.getColumn('Beta_AF8');
+  beta4 = muse_tabelle.getColumn('Beta_TP10');
 
-  delta1 = muse_tabelle.getColumn("Delta_TP9");
-  delta2 = muse_tabelle.getColumn("Delta_AF7");
-  delta3 = muse_tabelle.getColumn("Delta_AF8");
-  delta4 = muse_tabelle.getColumn("Delta_TP10");
+  delta1 = muse_tabelle.getColumn('Delta_TP9');
+  delta2 = muse_tabelle.getColumn('Delta_AF7');
+  delta3 = muse_tabelle.getColumn('Delta_AF8');
+  delta4 = muse_tabelle.getColumn('Delta_TP10');
 
-  theta1 = muse_tabelle.getColumn("Theta_TP9");
-  theta2 = muse_tabelle.getColumn("Theta_AF7");
-  theta3 = muse_tabelle.getColumn("Theta_AF8");
-  theta4 = muse_tabelle.getColumn("Theta_TP10");
+  theta1 = muse_tabelle.getColumn('Theta_TP9');
+  theta2 = muse_tabelle.getColumn('Theta_AF7');
+  theta3 = muse_tabelle.getColumn('Theta_AF8');
+  theta4 = muse_tabelle.getColumn('Theta_TP10');
 
 
-  gamma1 = muse_tabelle.getColumn("Gamma_TP9");
-  gamma2 = muse_tabelle.getColumn("Gamma_AF7");
-  gamma3 = muse_tabelle.getColumn("Gamma_AF8");
-  gamma4 = muse_tabelle.getColumn("Gamma_TP10");
+  gamma1 = muse_tabelle.getColumn('Gamma_TP9');
+  gamma2 = muse_tabelle.getColumn('Gamma_AF7');
+  gamma3 = muse_tabelle.getColumn('Gamma_AF8');
+  gamma4 = muse_tabelle.getColumn('Gamma_TP10');
 
-  elements = muse_tabelle.getColumn("Elements");
+  elements = muse_tabelle.getColumn('Elements');
+  
+
 }
 
 
@@ -141,8 +154,8 @@ class Agent {
     this.ypos = 0;
     this.anfangswinkel = anfWinkel;
     this.winkel = 0;
-    this.maxD = windowWidth / 4;
-    this.d = windowWidth / 4;
+    this.maxD = windowWidth / 6;
+    this.d = windowWidth / 6;
 
     this.whichAgent = agent;
     this.x_noise = 0;
@@ -169,19 +182,19 @@ class Agent {
         if (this.d >= 5) {
           this.d = this.d - 5;
 
-          this.x_noise = noise(frameCount * 0.007) * 500;
-          this.y_noise = noise(1 + frameCount * 0.007) * 500;
+          this.x_noise = noise(frameCount * 0.007) * 100;
+          this.y_noise = noise(1 + frameCount * 0.007) * 100;
         } else {
           this.d = 0;
-          this.x_noise = noise(1 + frameCount * 0.007) * 500;
-          this.y_noise = noise(1 + frameCount * 0.007) * 500;
+          this.x_noise = noise(1 + frameCount * 0.007) * 20;
+          this.y_noise = noise(1 + frameCount * 0.007) * 20;
         }
       } else {
 
-        if (this.d <= 500) {
+        if (this.d <= this.maxD) {
           this.d = this.d + 5;
         } else {
-          this.d = 500;
+          this.d = this.maxD;
         }
       }
     }
@@ -199,17 +212,16 @@ class Agent {
           this.y_noise = noise(1 + frameCount * 0.007) * 100;
         } else {
           this.d = 0;
-          this.x_noise = noise(1 + frameCount * 0.007) * 1;
-
-          this.y_noise = noise(1 + frameCount * 0.007) * 1;
+          this.x_noise = noise(1 + frameCount * 0.007) * 20;
+          this.y_noise = noise(1 + frameCount * 0.007) * 20;
 
         }
       } else {
 
-        if (this.d <= 500) {
+        if (this.d <= this.maxD) {
           this.d = this.d + 5;
         } else {
-          this.d = 500;
+          this.d = this.maxD;
         }
       }
     }
@@ -219,53 +231,53 @@ class Agent {
     if (!this.whichAgent) {
 
 
-      agent_color = color(0,228,232);
+      agent_color = color(0,228,232,100);
 
       push();
       translate(this.xpos, this.ypos);
       stroke(agent_color, 40);
-      strokeWeight(1);
+      strokeWeight(0.5);
       noFill();
       beginShape();
 
-      strokeWeight(2.5);
-       r = map(int(mapEeg1), 50, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 2;
+      
+       r = map(int(mapEeg1), 50, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 1;
        ix = map(r * cos(radians(360 / 8) * 1), -1, 1, 0, 2);
        y = map(r * sin(radians(360 / 8) * 1), -1, 1, 0, 2);
       vertex(ix, y);
 
-      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 2;
+      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 2), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 2), -1, 1, 0, 2);
       vertex(ix, y);
 
-      r = map(int(mapEeg2), 50, 100, 0, agent_size) * noise(4 + frameCount * 0.007) * 2;
+      r = map(int(mapEeg2), 50, 100, 0, agent_size) * noise(4 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 3), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 3), -1, 1, 0, 2);
       vertex(ix, y);
 
-      r = map(int(mapBeta), 50, 100, 0, agent_size) * noise(5 + frameCount * 0.007) * 2;
+      r = map(int(mapBeta), 50, 100, 0, agent_size) * noise(5 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 4), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 4), -1, 1, 0, 2);
       vertex(ix, y);
 
-      r = map(int(mapEeg3), 50, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 2;
+      r = map(int(mapEeg3), 50, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 5), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 5), -1, 1, 0, 2);
       vertex(ix, y);
 
-      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(3 + frameCount * 0.007) * 2;
+      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(3 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 6), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 6), -1, 1, 0, 2);
       vertex(ix, y);
 
 
-      r = map(int(mapEeg4), 0, 100, 0, agent_size) * noise(2 + frameCount * 0.006) * 2;
+      r = map(int(mapEeg4), 0, 100, 0, agent_size) * noise(2 + frameCount * 0.006) * 1;
       ix = map(r * cos(radians(360 / 8) * 7), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 7), -1, 1, 0, 2);
       vertex(ix, y);
 
-      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(+frameCount * 0.007) * 2;
+      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(+frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 8), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 8), -1, 1, 0, 2);
       vertex(ix, y);
@@ -277,62 +289,65 @@ class Agent {
     }
 
     if (this.whichAgent) {
-      agent_color = color(93,26,117); //magenta
+      agent_color = color(255, 0, 242,100); //magenta
 
       push();
       translate(this.xpos, this.ypos);
 
       stroke(agent_color, 40);
-      strokeWeight(1);
+      strokeWeight(0.5);
       noFill();
       beginShape();
-      //  curveVertex(0, 0);
+        
+       
 
 
-       r = map(int(mapEeg1), 50, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 2;
+       r = map(int(mapEeg1), 50, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 1;
        ix = map(r * cos(radians(360 / 8) * 1), -1, 1, 0, 2);
        y = map(r * sin(radians(360 / 8) * 1), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
 
-      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 4;
+      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 2), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 2), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
 
-      r = map(int(mapEeg2), 50, 100, 0, agent_size) * noise(3 + frameCount * 0.007) * 2;
+      r = map(int(mapEeg2), 50, 100, 0, agent_size) * noise(3 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 3), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 3), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
 
-      r = map(int(mapBeta), 50, 100, 0, agent_size) * noise(5 + frameCount * 0.017) * 2;
+      r = map(int(mapBeta), 50, 100, 0, agent_size) * noise(5 + frameCount * 0.017) * 1;
       ix = map(r * cos(radians(360 / 8) * 4), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 4), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
 
-      r = map(int(mapEeg3), 50, 100, 0, agent_size) * noise(5 + frameCount * 0.005) * 2;
+      r = map(int(mapEeg3), 50, 100, 0, agent_size) * noise(5 + frameCount * 0.005) * 1;
       ix = map(r * cos(radians(360 / 8) * 5), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 5), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
 
-      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(3 + frameCount * 0.007) * 2;
+      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(3 + frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 6), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 6), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
 
 
-      r = map(int(mapEeg4), 0, 100, 0, agent_size) * noise(3 + frameCount * 0.005) * 2;
+      r = map(int(mapEeg4), 0, 100, 0, agent_size) * noise(3 + frameCount * 0.005) * 1;
       ix = map(r * cos(radians(360 / 8) * 7), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 7), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
 
-      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(+frameCount * 0.007) * 2;
+      r = map(int(mapBeta), 0, 100, 0, agent_size) * noise(+frameCount * 0.007) * 1;
       ix = map(r * cos(radians(360 / 8) * 8), -1, 1, 0, 2);
       y = map(r * sin(radians(360 / 8) * 8), -1, 1, 0, 2);
-      vertex(ix, y);
+      curveVertex(ix, y);
+        
+     
 
       endShape(CLOSE);
       fill(255);
-    //  ellipse(ix, y, 20, 20);
+      //ellipse(ix, y, 20, 20);
       pop();
     }
   }
