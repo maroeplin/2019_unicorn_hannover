@@ -14,6 +14,10 @@ let agent_cyan;
 let agent_color;
 let agent_size;
 
+// lerp color
+let col_magenta1;
+let col_magenta2;
+let col_magenta;
 let blink;
 
 function preload() {
@@ -37,6 +41,9 @@ function setup() {
   agent_magenta = new Agent(0, !i_am_cyan);
   agent_cyan = new Agent(180, i_am_cyan);
   agent_size = windowWidth / 50;
+    
+  col_magenta1 = color(255, 0, 230,100);
+  col_magenta2 = color(255, 0, 230,10);
 }
 
 
@@ -145,6 +152,7 @@ eeg1 = muse_tabelle.getColumn('RAW_TP9');
 
 }
 
+let amp_speed=0.01;
 
 class Agent {
 
@@ -156,6 +164,7 @@ class Agent {
     this.winkel = 0;
     this.maxD = windowWidth / 6;
     this.d = windowWidth / 6;
+    this.color_amp=0.5;
 
     this.whichAgent = agent;
     this.x_noise = 0;
@@ -170,6 +179,24 @@ class Agent {
   }
 
   aktivePos() {
+      
+      // Farbe berechnen
+      col_magenta= lerpColor(col_magenta1,col_magenta2, this.color_amp);
+      
+      
+      this.color_amp = this.color_amp+amp_speed;
+      
+      if(this.color_amp > (0.9)){
+          
+          amp_speed = amp_speed*(-1);
+      }
+      
+      if(this.color_amp < (0.1)){
+          
+          amp_speed = amp_speed*(-1);
+      }
+      console.log("color " + amp_speed);
+     
 
     print(this.whichAgent);
     // AGENT GREY
@@ -289,7 +316,9 @@ class Agent {
     }
 
     if (this.whichAgent) {
-      agent_color = color(255, 0, 242,100); //magenta
+        
+      agent_color = col_magenta; //magenta
+      //agent_color = color(255, 0, 242,100); //magenta
 
       push();
       translate(this.xpos, this.ypos);
