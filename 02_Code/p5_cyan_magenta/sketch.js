@@ -46,10 +46,11 @@ function setup() {
   agent_size = windowWidth / 50;
     
   col_magenta1 = color(255, 0, 230,100);
-  col_magenta2 = color(0, 0, 230,10);
+    col_magenta2 = color(255, 0, 230,10);
+  //col_magenta2 = color(0, 0, 230,10);
     
-    col_cyan1=color(0,228,232,50);
-    col_cyan2=color(52, 235, 146,10);
+    col_cyan1=color(0,228,232,80);
+    col_cyan2=color(0,228,232,10);
 }
 
 
