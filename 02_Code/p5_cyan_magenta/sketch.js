@@ -17,6 +17,9 @@ let agent_size;
 // lerp color
 let col_magenta1;
 let col_magenta2;
+let col_cyan;
+let col_cyan1;
+let col_cyan2;
 let col_magenta;
 let blink;
 
@@ -43,7 +46,10 @@ function setup() {
   agent_size = windowWidth / 50;
     
   col_magenta1 = color(255, 0, 230,100);
-  col_magenta2 = color(255, 0, 230,10);
+  col_magenta2 = color(0, 0, 230,10);
+    
+    col_cyan1=color(0,228,232,50);
+    col_cyan2=color(52, 235, 146,10);
 }
 
 
@@ -180,8 +186,7 @@ class Agent {
 
   aktivePos() {
       
-      // Farbe berechnen
-      col_magenta= lerpColor(col_magenta1,col_magenta2, this.color_amp);
+     
       
       
       this.color_amp = this.color_amp+amp_speed;
@@ -196,6 +201,10 @@ class Agent {
           amp_speed = amp_speed*(-1);
       }
       console.log("color " + amp_speed);
+      
+       // Farbe berechnen
+      col_magenta= lerpColor(col_magenta1,col_magenta2, this.color_amp);
+      col_cyan= lerpColor(col_cyan1,col_cyan2, this.color_amp);
      
 
     print(this.whichAgent);
@@ -256,14 +265,15 @@ class Agent {
 
 
     if (!this.whichAgent) {
+   
+      agent_color = col_cyan;
 
-
-      agent_color = color(0,228,232,100);
+      //agent_color = color(0,228,232,100);
 
       push();
       translate(this.xpos, this.ypos);
-      stroke(agent_color, 40);
-      strokeWeight(0.5);
+      stroke(agent_color, 20);
+      strokeWeight(0.2);
       noFill();
       beginShape();
 
@@ -323,8 +333,8 @@ class Agent {
       push();
       translate(this.xpos, this.ypos);
 
-      stroke(agent_color, 40);
-      strokeWeight(0.5);
+      stroke(agent_color);
+      strokeWeight(0.3);
       noFill();
       beginShape();
         
