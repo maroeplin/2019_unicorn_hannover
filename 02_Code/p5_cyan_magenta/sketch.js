@@ -22,8 +22,12 @@ let col_cyan1;
 let col_cyan2;
 let col_magenta;
 let blink;
+let amp_speed;
+let color_amp;
+let max_maxD;
 
 function preload() {
+    
     
     muse_tabelle = loadTable(
     'muse_data_katja.csv',
@@ -34,23 +38,26 @@ function preload() {
 
 function setup() {
 
-  createCanvas(windowWidth, windowHeight * 0.9);
-  background(30, 30, 30);
+  createCanvas(windowWidth, windowHeight);
+  background(26, 26, 26);
   import_csv();
   x=0;
-    
+  
   blink=true;
   i_am_cyan=true;
   agent_magenta = new Agent(0, !i_am_cyan);
   agent_cyan = new Agent(180, i_am_cyan);
   agent_size = windowWidth / 50;
     
-  col_magenta1 = color(255, 0, 230,100);
-    col_magenta2 = color(255, 0, 230,10);
-  //col_magenta2 = color(0, 0, 230,10);
+    col_magenta1 = color(255, 0, 221,80);
+    col_magenta2 = color(200, 43, 240,40);
+
     
-    col_cyan1=color(0,228,232,80);
-    col_cyan2=color(0,228,232,10);
+    col_cyan1=color(0, 255, 255,80);
+    col_cyan2=color(75, 229, 250,40);
+    amp_speed=0.1;
+    color_amp=0.01;
+    max_maxD=height/2;
 }
 
 
@@ -159,7 +166,7 @@ eeg1 = muse_tabelle.getColumn('RAW_TP9');
 
 }
 
-let amp_speed=0.01;
+
 
 class Agent {
 
@@ -171,7 +178,7 @@ class Agent {
     this.winkel = 0;
     this.maxD = windowWidth / 6;
     this.d = windowWidth / 6;
-    this.color_amp=0.5;
+    
 
     this.whichAgent = agent;
     this.x_noise = 0;
@@ -188,26 +195,31 @@ class Agent {
   aktivePos() {
       
      
+   
+        // Farbe berechnen
+      col_magenta= lerpColor(col_magenta1,col_magenta2, color_amp);
+      col_cyan= lerpColor(col_cyan1,col_cyan2, color_amp);
+      
+      color_amp = color_amp+amp_speed;
       
       
-      this.color_amp = this.color_amp+amp_speed;
+  
+      if(color_amp>0.95){
+         amp_speed= -0.01;
+         console.log(color_amp);
+     }
+  
+    if(color_amp<=0){
+     amp_speed=0.01;
+     }
       
-      if(this.color_amp > (0.9)){
-          
-          amp_speed = amp_speed*(-1);
-      }
       
-      if(this.color_amp < (0.1)){
-          
-          amp_speed = amp_speed*(-1);
-      }
-      console.log("color " + amp_speed);
       
-       // Farbe berechnen
-      col_magenta= lerpColor(col_magenta1,col_magenta2, this.color_amp);
-      col_cyan= lerpColor(col_cyan1,col_cyan2, this.color_amp);
-     
-
+    // Während des Sketches wächst der Radius der Laufbahn  
+    if(this.maxD<max_maxD) {
+        this.maxD=this.maxD+0.02;
+    }
+   
     print(this.whichAgent);
     // AGENT GREY
     if (this.whichAgent) {
@@ -215,9 +227,14 @@ class Agent {
       this.winkel = this.winkel + 0.35;
 
       if (blink) {
+    col_magenta1 = color(255, 0, 221,10);
+    col_magenta2 = color(200, 43, 240,30);
 
-        if (this.d >= 5) {
-          this.d = this.d - 5;
+    
+  
+
+        if (this.d >= 1) {
+          this.d = this.d - 1;
 
           this.x_noise = noise(frameCount * 0.007) * 100;
           this.y_noise = noise(1 + frameCount * 0.007) * 100;
@@ -227,9 +244,12 @@ class Agent {
           this.y_noise = noise(1 + frameCount * 0.007) * 20;
         }
       } else {
+          
+          col_magenta1 = color(255, 0, 221,80);
+    col_magenta2 = color(200, 43, 240,40);
 
         if (this.d <= this.maxD) {
-          this.d = this.d + 5;
+          this.d = this.d + 1;
         } else {
           this.d = this.maxD;
         }
@@ -239,12 +259,15 @@ class Agent {
     //// AGENT GREEN
     if (!this.whichAgent) {
 
-      this.winkel = this.winkel + 0.05;
+      this.winkel = this.winkel + 0.35;
 
       if (!blink) {
+          
+    col_cyan1=color(0, 255, 255,30);
+    col_cyan2=color(75, 229, 250,10);
 
-        if (this.d >= 5) {
-          this.d = this.d - 5;
+        if (this.d >= 1) {
+          this.d = this.d - 1;
           this.x_noise = noise(frameCount * 0.007) * 100;
           this.y_noise = noise(1 + frameCount * 0.007) * 100;
         } else {
@@ -254,9 +277,12 @@ class Agent {
 
         }
       } else {
+          
+           col_cyan1=color(0, 255, 255,80);
+    col_cyan2=color(75, 229, 250,40);
 
         if (this.d <= this.maxD) {
-          this.d = this.d + 5;
+          this.d = this.d + 1;
         } else {
           this.d = this.maxD;
         }
@@ -339,8 +365,6 @@ class Agent {
       noFill();
       beginShape();
         
-       
-
 
        r = map(int(mapEeg1), 50, 100, 0, agent_size) * noise(2 + frameCount * 0.007) * 1;
        ix = map(r * cos(radians(360 / 8) * 1), -1, 1, 0, 2);
@@ -391,4 +415,10 @@ class Agent {
       pop();
     }
   }
+}
+
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+    background(30, 30, 30);
 }
