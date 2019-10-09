@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
+</head>
+
+
+<body>
+
+    <div>
+
+        <!-- HIER WIRD IFRAME MIT DEM VIDEO PLAZIERT UND EINE DIV, DIE MOUSEOVER ABFÄNGT-->
+        <div class='iframe-wrapper'>
+            <iframe src="https://player.vimeo.com/video/361259922?autoplay=1&loop=1" width="1920" height="1080" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+        </div>
+
+       <!-- Die folgende DIV Box lässt nicht zu, dass Vimeo-Iframe auf mouseover-reagiert-->
+        <div id="iframeBlocker" style="position:absolute; top: 0; left: 0; width:100%; height:100%;opacity:0;"> 
+        </div>
+
+
+        <div id="bars" onclick="soundCommand()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            
+            <!-- Dieser Text steht neben der Soundbar, bis man das erste mal darauf geklickt hat-->
+            <div id="soundOnOff">turn sound<br>on</div>
+        </div>
+        
+        </div>
+        
+<script src="soundVimeo.js"></script>
+</body></html>

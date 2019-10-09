@@ -1,0 +1,249 @@
+body {
+    background-color: #111;
+}
+
+
+
+/* VIMEO WRAPPER */
+
+.iframe-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Make the iframe keep an aspect ratio, and
+position it in the middle of its parent wrapper*/
+
+.iframe-wrapper iframe {
+    width: 100vw;
+    height: 56.25vw;
+    /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+    min-height: 100vh;
+    min-width: 177.77vh;
+    /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* SOUNDBAR*/
+
+#bars {
+    height: 30px;
+    right: 5%;
+    margin: -30px 0 0 -20px;
+    position: absolute;
+    top: 9%;
+    width: 40px;
+}
+
+.bar {
+    background: #FFF;
+    bottom: 1px;
+    height: 3px;
+    position: absolute;
+    width: 3px;
+    z-index: -1;
+}
+
+#soundOnOff {
+    font-family: sans-serif;
+    font-size: 0.7em;
+    color: white;
+    margin-top: 40px;
+    z-index: 4000;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.bar-animation {
+    animation: sound 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound {
+    0% {
+        opacity: 0.7;
+        height: 5px;
+    }
+
+    100% {
+        opacity: 0.7;
+        height: 20px;
+    }
+}
+
+.bar-animation2 {
+    animation: sound2 0ms -800ms linear infinite alternate;
+}
+
+@keyframes sound2 {
+    0% {
+        opacity: 0.7;
+        height: 3px;
+    }
+
+    100% {
+        opacity: 0.7;
+        height: 7px;
+    }
+}
+
+
+.bar:nth-child(1) {
+    left: 1px;
+    animation-duration: 674ms;
+}
+
+.bar:nth-child(2) {
+    left: 5px;
+    animation-duration: 633ms;
+}
+
+.bar:nth-child(3) {
+    left: 9px;
+    animation-duration: 607ms;
+}
+
+.bar:nth-child(4) {
+    left: 13px;
+    animation-duration: 658ms;
+}
+
+.bar:nth-child(5) {
+    left: 17px;
+    animation-duration: 600ms;
+}
+
+.bar:nth-child(6) {
+    left: 21px;
+    animation-duration: 627ms;
+}
+
+.bar:nth-child(7) {
+    left: 25px;
+    animation-duration: 641ms;
+}
+
+.bar:nth-child(8) {
+    left: 29px;
+    animation-duration: 619ms;
+}
+
+
+
+/* LOADING ANIMATION */
+
+#loader-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index=100;
+
+}
+
+
+#loader {
+    display: block;
+    position: relative;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+
+    z-index: 1050;
+}
+
+#p5loading-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index=100;
+    opacity: 1;
+}
+
+#loading-text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    color: white;
+    z-index: 1050;
+    opacity: 0.0;
+    font-family: input-sans, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    -webkit-animation: myanim 5s infinite;
+    animation: myanim 5s infinite;
+}
+
+@-webkit-keyframes myanim {
+    0% {
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes myanim {
+    0% {
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#loader-wrapper .loader-section {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1A1A1A;
+    z-index: 1000;
+   
+}
+
+
+.loaded #loader {
+    opacity: 0;
+
+    -webkit-transition: all 1.8s  ease-out;
+    transition: all 1.8s  ease-out;
+
+}
+
+.loaded #loader-wrapper .loader-section {
+    opacity: 0;
+    -webkit-transition: opacity 0.8s  ease-out;
+    transition: opacity 0.8s  ease-out;
+}
+
+.loaded #loader-wrapper {
+
+    visibility: hidden;
+    -webkit-transition: all 0.1s 1.8s ease-out;
+    transition: all 0.1s 1.8s ease-out;
+}
