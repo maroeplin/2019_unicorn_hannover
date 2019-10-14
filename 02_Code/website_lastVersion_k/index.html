@@ -1,0 +1,1568 @@
+﻿<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <title>mindscapes</title>
+    <meta name="author" content="mndscps" />
+    <meta name="description" content="Webauftritt für das Projekt Mindscapes" />
+    <meta name="keywords" content="mindscapes, mndscps, eeg, datenvisualisierung, processing" />
+    <meta name="Resource-type" content="Document" />
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- extensions -->
+
+
+
+    <script type="text/javascript" src="https://unpkg.com/fullpage.js/dist/fullpage.extensions.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- fullpage.js -->
+
+    <script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
+
+    <!-- <script type="text/javascript" src="fullpage.min.js"></script> -->
+
+
+    <!-- VIMEO API   -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <!-- <script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script> -->
+
+
+    <!-- Stylesheet Anweisungen extern -->
+
+    <link rel="stylesheet" type="text/css" href="fullpage.css" />
+    <link rel="stylesheetVimeo" type="text/css" href="main.css" />
+
+
+    <!-- Fonts in use-->
+    <link rel="stylesheet" href="https://use.typekit.net/mrz0uoh.css">
+
+
+
+</head>
+
+<body>
+
+
+    <script src="sketch.js"></script>
+
+
+    
+
+
+
+   <!-- <div id="sticky_logo">mindscapes</div> -->
+    <div id="fullpage">
+
+
+
+        <!--        Seite 1         -->
+        <!--        Fullscreen Video        -->
+
+
+        <div class="section" id="section0">
+
+
+
+            <div class="containerFullscreenVideo">
+
+
+
+                <introVideo>
+
+                    <iframe id="introVideo" src="https://player.vimeo.com/video/361259922?autoplay=1&loop=1" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute; top: 0; left: 0; width:100%; height:100%;"></iframe>
+
+                    <div id="iframeBlocker" style="position:absolute; top: 0; left: 0; width:100%; height:100%;opacity:0;"></div>
+
+                    <div id="loader-wrapper">
+
+                </introVideo>
+
+
+                <loader>
+                    <div id="loader">
+
+
+
+                        <iframe id="p5loading-wrapper" scrolling="no" src="loader.html" style="overflow:hidden;"></iframe>
+
+                        <div id="loading-text">Loading</div>
+
+                    </div>
+
+
+                    <div class="loader-section"></div>
+
+            </div>
+
+            </loader>
+
+            <script src="soundVimeo.js"></script>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <!--        Seite 1          -->
+    <!--        Idee       -->
+    <!--                 -->
+
+    <div class="section" id="section1">
+
+        <div class="slide active">
+
+            <div class="containerIdee">
+
+
+
+
+
+                <ueberschrift00>
+                    <!--   <h1>Idee</h1>-->
+                </ueberschrift00>
+
+                <anlauftextIdee>
+                    <p id="kurztexteMindscapesSeite1">
+                        Wie bringt man Gedanken zu Papier?<br>
+                        Die Installation mindscapes
+                        interpretiert das Empfinden der Person anhand von Gehirnströmen
+                        und übersetzt diese in abstrakte Gedankenwelten,
+                        sichtbar für alle. Jede Person wiederum ermächtigt, gleich ihrer Fähigkeiten,
+                        ein Kunstwerk zu schaffen und Erlebtes auf Bild zu bannen.
+                        Durch eine niedrige Interaktionsschwelle
+                        entsteht eine sowohl immersive als auch ästhetisch schlüssige Anwendung.
+                    </p>
+                </anlauftextIdee>
+
+
+                <platzBild00>
+                    <img id="bild00" data-src="assets/bild00.jpg" alt="janSchoelzelBild00" />
+                </platzBild00>
+
+
+                <seitenrandAufbau>
+                    <p id="kategorien">mindscapes</p>
+                </seitenrandAufbau>
+
+                <seitenrandMindscapes>
+                    <h2 id="kategorien">idee</h2>
+                </seitenrandMindscapes>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!--        Seite 1 1          -->
+    <!--        Illustration      -->
+    <!--                         -->
+
+    <div class="section" id="sectionIllustration">
+
+        <div class="slide active">
+
+            <div class="containerIllustrationen">
+
+
+
+                <anlauftextSpalte01>
+                    <p id="kurztexteMindscapesAufbau">
+                        Mithilfe eines non-invasiven EEG-Gerätes
+                        werden die Hirnströmungen der Partizipierenden
+                        gemessen und per Bluetooth an den verarbeitenden
+                        Rechner geschickt. Durch das moderne, unkomplizierte
+                        Design ist die Hürde, das Gerät selbst aufzusetzen
+                        oder aufsetzen zu lassen, verschwindend gering.
+                    </p>
+                </anlauftextSpalte01>
+
+
+                <anlauftextSpalte02>
+                    <p id="kurztexteMindscapesAufbau">
+                        Die empfangenen Kanäle decken jeweils separate Hirnareale ab, so kann
+                        auf verschiedene Gemütszustände und Wahrnehmungen reagiert werden.
+                        Schmerz und Überraschung wirken sich eher auf die Amplitude der Aktivität
+                        in bestimmten Bereichen aus, während Entspannung eher die Frequenz ändert.
+                    </p>
+                </anlauftextSpalte02>
+
+                <anlauftextSpalte03>
+                    <p id="kurztexteMindscapesAufbau">
+                        Unser Algorithmus nutzt diese Unterschiede in Frequenz und Amplitude
+                        um eine individuelle Interpretation des Erlebten hinter
+                        die Partizipierenden zu projizieren. Jede mindscape ist
+                        menschliche Emotion, maschinell visualisiert.
+                    </p>
+                </anlauftextSpalte03>
+
+
+                <illustration01>
+                    <img id="illustration" data-src="assets/illu01.png" alt="Illustration EEG" />
+                </illustration01>
+
+                <illustration02>
+                    <img id="illustration" data-src="assets/illu02.png" alt="Illustration EEG-Daten" />
+                </illustration02>
+
+                <illustration03>
+                    <img id="illustration" data-src="assets/illu03.png" alt="Illustration Visualisierung" />
+                </illustration03>
+
+
+
+
+                <seitenrandAufbau>
+                    <p id="kategorien">mindscapes</p>
+                </seitenrandAufbau>
+
+                <seitenrandMindscapes>
+                    <p id="kategorien">aufbau</p>
+                </seitenrandMindscapes>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!--        Seite 2          -->
+    <!--        Konzept       -->
+    <!--                 -->
+
+    <div class="section" id="section2">
+
+        <div class="slide active">
+
+            <div class="containerKonzept">
+
+
+
+
+                <!-- <JahrNam>
+                        <p id="kategorien">2019</p>
+                    </JahrNam>
+                   -->
+
+                <ueberschrift>
+                    <h1>Konzept</h1>
+                </ueberschrift>
+
+                <anlauftextMindscapes>
+                    <p id="kurztexteMindscapesAufbau">
+                        Als Installation stellt mindscapes eine Brücke zwischen der ansonsten Verborgenen
+                        Welt der Gedanken und einer visuell verarbeitbaren Interpretation von Gefühlen und Emotionen her.
+                        Die immersive Interaktion lädt jede Person zur Teilhabe ein und eröffnet darüber
+                        hinaus einen neuen Diskurs in der Debatte über die Definition von Kunst.
+                    </p>
+                </anlauftextMindscapes>
+
+
+                <platzBild01>
+                    <img id="bild01" data-src="assets/bild01.jpg" alt="janSchoelzelBild01" />
+                </platzBild01>
+
+                <platzBild02>
+                    <img id="bild02" data-src="assets/bild02.jpg" alt="janSchoelzelBild02" />
+                </platzBild02>
+
+
+                <seitenrandAufbau>
+                    <p id="kategorien">mindscapes</p>
+                </seitenrandAufbau>
+
+                <seitenrandMindscapes>
+                    <p id="kategorien">konzept</p>
+                </seitenrandMindscapes>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!--        Seite 3         -->
+    <!--        Wirkung        -->
+
+    <div class="section" id="section3">
+
+
+
+        <div class="containerWirkung">
+
+
+            <platzBild03>
+                <img id="bild02" data-src="assets/bild03.jpg" alt="janSchoelzelBild03" />
+            </platzBild03>
+
+            <ueberschrift02>
+                <h1>Wirkung</h1>
+            </ueberschrift02>
+
+            <anlauftextWirkung>
+                <p id="kurztextWirkung">
+                    Während des Schaffensprozesses bleiben die
+                    Partizipanten von der Leinwand, auf der die Maschine malt,
+                    abgewandt und fokussieren sich auf ihr eigenes Erleben. Beim Beendigen der Interaktion,
+                    werden die Teilnehmenden mit der digitalen Übersetzung des analogsten aller Prozesse,
+                    den eigenen Gedanken und Empfindungen, konfrontiert.
+                </p>
+            </anlauftextWirkung>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <!--        Seite 4         -->
+    <!--        Datenvisualisierung         -->
+
+    <div class="section" id="section5">
+
+        <div class="slide">
+            <div class="containerDatenvisualisierung">
+
+                <ueberschrift03>
+                    <h1>Datenvisualisierung</h1>
+                </ueberschrift03>
+
+                <anlauftextDaten>
+                    <p id="kurztextDatenvisualisierung">
+                        Sie sind die wichtigsten Wellen für die Installation; Alpha-Wellen;
+                        Alpha-Wellen treten am häufigsten in einem grundentspannten Zustand auf,
+                        etwa während Tagträumen, Meditation oder ruhigem Schlaf.
+                        Sie schlagen die Brücke zu den Theta-Wellen, welche im REF-Schlaf und stark kreativen Phasen auftreten.
+                        Die Alpha-Wellen bringen unterbewusste Empfindungen an die Bewusstseinsoberfläche.
+                        Basierend auf der Frequenz und Intensität der <span>a</span>-Wellen reagieren die einzelnen zeichnenden Einheiten
+                        und schaffen interpretative Formen, die den Erregungs- und Entspannungszuständen nachempfunden
+                        sind.
+                    </p>
+                </anlauftextDaten>
+
+
+
+                <wellenSketch>
+                    <iframe id="sketch" scrolling="no" src="waves.html" frameBorder="0"></iframe>
+                    <div id="sketchBlocker" style="position:absolute; top:0; left:0; width:100%; height:100%;opacity:0;"></div>
+                </wellenSketch>
+
+                  <seitenrandAufbau>
+                    <p id="kategorien">mindscapes</p>
+                </seitenrandAufbau>
+
+                <seitenrandMindscapes>
+                    <p id="kategorien">visualisierung</p>
+                </seitenrandMindscapes>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+     <!--        Seite 7         -->
+    <!--        P5 HauptSketch        -->
+
+    <div class="section" id="section5">
+
+        <div class="slide">
+            <div class="containerP5">
+
+
+                <p5Sketch>
+                    <iframe id="sketch_gross" scrolling="no" src="eegVis.html" frameBorder="0"></iframe>
+                    <div id="sketchBlocker" style="position:absolute; top:0; left:0; width:100%; height:100%;opacity:0;"></div>
+                </p5Sketch>
+
+
+                 <seitenrandAufbau>
+                    <p id="kategorien">mindscapes</p>
+                </seitenrandAufbau>
+
+                <seitenrandMindscapes>
+                    <p id="kategorien">visualisierung</p>
+                </seitenrandMindscapes>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    
+
+    <!--        Seite 5         -->
+    <!--        Video        -->
+
+    <div class="section" id="section5">
+
+        <div class="slide">
+            <div class="containerVideo">
+
+
+
+
+
+                <platzBild04>
+                    <img id="bild04" data-src="assets/bild04.jpg" alt="janSchoelzelBild04" />
+                </platzBild04>
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <!--        Seite 6         -->
+    <!--        Vision         -->
+
+    <div class="section" id="section5">
+
+        <div class="slide">
+            <div class="containerVision">
+
+
+                <platzBild05>
+                    <img id="bild05" data-src="assets/bild05.jpg" alt="janSchoelzelBild05" />
+                </platzBild05>
+
+
+                <ueberschrift04>
+                    <h1>Vision</h1>
+                </ueberschrift04>
+
+                <anlauftextVision>
+                    <p id="kurztextVision">
+                        mindscapes strebt danach, eine größere
+                        Menge an Personen für ihre eigenen Hirne zu
+                        begeistern - beziehungsweise für die Perspektiven
+                        und Möglichkeiten, die ein bewusstes Sein im Zusammenspiel mit
+                        Technologie und Kunst bietet.
+                    </p>
+                </anlauftextVision>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+   
+
+
+    <!--                 -->
+    <!--        footer         -->
+
+    <div class="section fp-auto-height" id="footer">
+
+        <div class="containerFooter">
+
+
+
+
+
+
+            <impressum>
+
+                <p class="footer-text">
+                    Projekt von: David Schwarzfeld, <a class="footer-text" href="https://www.katjarempel.de/" class="">Katja Rempel</a>, <a class="footer-text" href="https://www.marcelrose.de/" class="">Marcel Rose</a> u. <a class="footer-text" href="http://maxkesslau.de/" class="">Maximilian Kesslau</a> <br />
+                    Fotograf: <a class="footer-text" href="https://www.janschoelzel.de/" class="">Jan Schoelzel</a>
+
+                </p>
+
+            </impressum>
+
+
+            <hinweis>
+
+                <p>
+                    Diese Seite ist aktuell angepasst für Chrome und Mozilla, Safari wiederum
+                    hält noch einige Fehler in der Darstellung bereit.
+
+                    <br />
+                    <br />
+                </p>
+
+            </hinweis>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+    </div>
+
+
+
+    <style>
+        /* Für Mobile: */
+        /* responsive - eine Spalte*/
+        /*Medienabfragen*/
+
+        @media screen and (max-width: 400px) {
+
+            #fullpage {
+                width: 100%;
+                grid-template-areas: "intro";
+            }
+
+            #section0 {
+                width: 100%;
+                height: auto;
+                background-color: black;
+            }
+
+
+
+
+
+
+
+            /* Text, Links */
+
+
+            #kategorien {
+                font-size: 1.1em;
+                font-family: input-sans, sans-serif;
+                font-weight: 500;
+                font-style: normal;
+                text-align: left;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: #ffffff;
+                line-height: 1.2;
+                transform: rotate(-90deg);
+                transform-origin: left top 0;
+                word-spacing: 0em;
+                /*word-spacing: 0em;*/
+            }
+
+            #kurztexte {
+                text-align: left;
+                font-size: 1.6em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: #ffffff;
+                line-height: 1.2;
+
+                /*background-color: #5e3986;*/
+            }
+
+            #kurztexteMindscapes {
+                text-align: left;
+                font-size: 1.4em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: white;
+                line-height: 1.7;
+            }
+
+
+            a:link {
+                color: #DAE4E5;
+                background-color: transparent;
+                text-decoration: none;
+            }
+
+
+        }
+
+
+
+
+
+
+        /****************************************************/
+        /****************************************************/
+        /****************************************************/
+        /****************************************************/
+
+
+
+
+        @media screen and (min-width: 600px) {
+
+             #section0 {
+                
+                background-color: black;
+            }
+            /* LOADING ANIMATION */
+
+
+
+            loader {
+                grid-column: 1 / 10;
+                grid-row: 1/ 4;
+            }
+
+
+
+
+
+
+
+
+
+            #loader {
+
+                display: block;
+
+                position: relative;
+
+                left: 0%;
+
+                top: 0%;
+
+                width: 100%;
+
+                height: 100%;
+
+
+
+                z-index: 1050;
+
+            }
+
+
+
+            #p5loading-wrapper {
+
+                position: fixed;
+
+                width: 100%;
+
+                height: 100%;
+
+                z-index=100;
+
+                opacity: 1;
+                left: 0;
+                top: 0;
+
+            }
+
+
+
+            #loading-text {
+
+
+                display: flex;
+                position: absolute;
+                text-align: center;
+                top: 50vh;
+                left: 49vw;
+                width: 100%;
+
+                height: 100%;
+
+
+
+                color: white;
+
+                z-index: 1050;
+
+                opacity: 0.0;
+
+                font-family: input-sans, sans-serif;
+
+                font-weight: 500;
+
+                font-style: normal;
+
+                -webkit-animation: myanim 5s infinite;
+
+                animation: myanim 5s infinite;
+
+            }
+
+
+
+            @-webkit-keyframes myanim {
+
+                0% {
+
+                    opacity: 0.0;
+
+                }
+
+
+
+                50% {
+
+                    opacity: 1;
+
+                }
+
+
+
+                100% {
+
+                    opacity: 0;
+
+                }
+
+            }
+
+
+
+            @keyframes myanim {
+
+                0% {
+
+                    opacity: 0.0;
+
+                }
+
+
+
+                50% {
+
+                    opacity: 1;
+
+                }
+
+
+
+                100% {
+
+                    opacity: 0;
+
+                }
+
+            }
+
+
+
+            #loader-wrapper .loader-section {
+
+
+
+                position: fixed;
+
+                top: 0;
+
+                left: 0;
+
+                width: 100%;
+
+                height: 100%;
+
+                background: #1A1A1A;
+
+                z-index: 1000;
+
+
+
+            }
+
+
+
+
+
+            .loaded #loader {
+
+                opacity: 0;
+
+
+
+                -webkit-transition: all 1.8s ease-out;
+
+                transition: all 1.8s ease-out;
+
+
+
+            }
+
+
+
+            .loaded #loader-wrapper .loader-section {
+
+                opacity: 0;
+
+                -webkit-transition: opacity 0.8s ease-out;
+
+                transition: opacity 0.8s ease-out;
+
+            }
+
+
+
+            .loaded #loader-wrapper {
+
+
+
+                visibility: hidden;
+
+                -webkit-transition: all 0.1s 1.8s ease-out;
+
+                transition: all 0.1s 1.8s ease-out;
+
+            }
+
+
+
+
+            /* Seite 0 */
+            /* Fullscreen Video */
+
+            .containerFullscreenVideo {
+                height: 100vh;
+                display: grid;
+                background-color: black;
+                grid-template-rows: 100px 100px 100px 100px;
+                grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+            }
+
+            introVideo {
+                grid-column: 1 / 10;
+                grid-row: 1/ 4;
+            }
+
+            /* Seite 1 */
+            /* Idee */
+
+            .containerIdee {
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 100px 100px 100px 100px 100px;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+
+            #bild00 {
+                max-width: 100%;
+                height: auto;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+
+            platzBild00 {
+                grid-column: 2 / 15;
+                grid-row: 2 / 5;
+                text-align: left;
+            }
+
+            ueberschrift00 {
+                grid-column: 16 / 24;
+                grid-row: 3 / 5;
+                text-align: left;
+            }
+
+            anlauftextIdee {
+                grid-column: 16 / 24;
+                grid-row: 4 / 5;
+                text-align: left;
+            }
+
+
+            /* Seite 1 - 2 Illustrationen */
+
+            .containerIllustrationen {
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 100px 100px 100px 100px 100px;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+
+            anlauftextSpalte01 {
+                grid-column: 4 / 9;
+                grid-row: 6 / 6;
+                text-align: left;
+            }
+
+            anlauftextSpalte02 {
+                grid-column: 11 / 16;
+                grid-row: 6 / 6;
+                text-align: left;
+            }
+
+            anlauftextSpalte03 {
+                grid-column: 18 / 23;
+                grid-row: 6 / 6;
+                text-align: left;
+
+            }
+
+            illustration01 {
+                grid-column: 4 / 9;
+                grid-row: 2 / 6;
+
+            }
+
+            illustration02 {
+                grid-column: 11 / 16;
+                grid-row: 2 / 6;
+
+
+            }
+
+            illustration03 {
+                grid-column: 18 / 23;
+                grid-row: 2 / 6;
+
+            }
+
+            #illustration {
+                object-fit: contain;
+                max-width: 100%;
+                max-height: 100%;
+
+                width: 100%;
+                bottom: 0px;
+            }
+
+
+
+
+
+
+
+
+            /* Seite 2 */
+            /* Konzept */
+
+            .containerKonzept {
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 100px 100px 100px 100px 100px 100px;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+
+
+            /* Kurztext */
+
+            ueberschrift {
+                grid-column: 5 / 8;
+                grid-row: 2 / 3;
+                text-align: left;
+            }
+
+            anlauftextMindscapes {
+                grid-column: 5 / 9;
+                grid-row: 3 / 5;
+                text-align: left;
+            }
+
+            anlauftextMindscapes2 {
+                grid-column: 8 / 11;
+                grid-row: 3 / 5;
+            }
+
+            platzBild01 {
+                grid-column: 11 / 18;
+                grid-row: 2 / 5;
+            }
+
+            platzBild02 {
+                grid-column: 19 / 26;
+                grid-row: 2 / 5;
+            }
+
+            #bild01 {
+                max-width: 100%;
+                height: auto;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+
+            #bild02 {
+                max-width: 100%;
+                height: auto;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+
+
+
+            seitenrandAufbau {
+                grid-column: 1 / 10;
+                grid-row: 11 / 11;
+            }
+
+
+            seitenrandMindscapes {
+                grid-column: 1 / 8;
+                grid-row: 3 / 5;
+            }
+
+
+
+
+            /* */
+
+            uebersicht {
+                grid-column: 1 / 21;
+                grid-row: 1/ 3;
+            }
+
+
+            #uebersicht {
+                height: auto;
+                max-width: 100%;
+                z-index: 3;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+
+            details {
+                grid-column: 7 / 11;
+                grid-row: 1 / 6;
+            }
+
+
+            #detail {
+                height: auto;
+                max-width: 100%;
+                z-index: 3;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+
+
+
+
+
+            /* Seite 3 */
+            /* Wirkung */
+
+            .containerWirkung {
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 100px 100px 100px 100px 100px 100px;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+
+            platzBild03 {
+                grid-column: 5 / 12;
+                grid-row: 3 / 5;
+            }
+
+            ueberschrift02 {
+                grid-column: 13 / 18;
+                grid-row: 3 / 4;
+                text-align: left;
+            }
+
+            #kurztextWirkung {
+                font-size: 0.9em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                text-align: left;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: white;
+                line-height: 1.7;
+            }
+
+            anlauftextWirkung {
+                grid-column: 13 / 18;
+                grid-row: 4 / 5;
+            }
+
+
+
+
+            /* Seite 4 */
+            /* Datenvisualisierung */
+
+            .containerDatenvisualisierung {
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 100px 100px 100px 100px 100px 100px ;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+
+
+
+            ueberschrift03 {
+                grid-column: 4 / 11;
+                grid-row: 3 / 5;
+                text-align: left;
+            }
+
+            #kurztextDatenvisualisierung {
+                font-size: 0.9em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                text-align: left;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 2;
+                color: white;
+                line-height: 1.7;
+            }
+
+
+            anlauftextDaten {
+                grid-column: 4 / 11;
+                grid-row: 4 / 5;
+            }
+
+
+            #sketch {
+                height: 100%;
+                width: 100%;
+
+                max-width: 100%;
+                z-index: 3;
+
+            }
+
+            wellenSketch {
+                grid-column: 12 / 26;
+                grid-row: 4 / 12;
+            }
+
+
+
+
+            /* Seite 5 */
+            /* Video */
+
+            .containerVideo {
+                height: 100vh;
+                display: grid;
+                
+                grid-template-rows: 100px 100px 100px 100px 100px 100px;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+
+
+
+
+
+            #bild04 {
+                max-width: 100%;
+                height: auto;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+
+            platzBild04 {
+                grid-column: 5 / 22;
+                grid-row: 2 / 4;
+            }
+
+
+
+            /* Seite 6 */
+            /* Vision */
+
+            .containerVision {
+                background-color:rgb(26,26,26);
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 100px 100px 100px 100px 100px 100px;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+
+            #bild05 {
+                max-width: 100%;
+                height: auto;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            }
+
+            platzBild05 {
+                grid-column: 1 / 14;
+                grid-row: 2 / 4;
+            }
+
+            ueberschrift04 {
+                grid-column: 15 / 22;
+                grid-row: 2 / 4;
+                text-align: left;
+            }
+
+            #kurztextVision {
+                font-size: 0.9em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                text-align: left;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: white;
+                line-height: 1.7;
+            }
+
+
+            anlauftextVision {
+                grid-column: 15 / 19;
+                grid-row: 3 / 5;
+            }
+
+
+                 /* Seite 7 */
+            /* Großer Sketch */
+
+            .containerP5 {
+                background-color: rgb(26,26,26);
+                height: 100vh;
+                display: grid;
+                grid-template-rows: 100px 100px 100px 100px 100px 100px;
+                grid-template-columns: 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4% 4%;
+            }
+            
+
+            #sketch_gross {
+                height: 100%;
+                width: 100%;
+                max-width: 100%;
+                z-index: 3;
+
+            }
+
+            p5Sketch {
+                grid-column: 1 / 26;
+                grid-row: 1 / 12;
+            }
+
+
+
+            /* Seite 11 */
+
+            /* Footer */
+
+            .containerFooter {
+                height: 60vh;
+                display: grid;
+                grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+                grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+                justify-items: center;
+            }
+
+
+            #footer {
+                height: 400px;
+
+                font-size: 0.6em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                text-align: left;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: black;
+                line-height: 1.5;
+            }
+
+
+            impressum {
+                grid-column: 2 / 9;
+                grid-row: 2 / 4;
+            }
+
+            hinweis {
+                grid-column: 13 / 19;
+                grid-row: 2 / 5;
+            }
+
+
+
+
+
+            /* Text, Links */
+
+            h1 {
+                font-family: input-sans, sans-serif;
+                font-weight: 700;
+                font-style: normal;
+                font-size: 3.2em;
+                color: white;
+                text-align: left;
+                margin-left: 2%;
+            }
+
+            h2 {
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 0.2em;
+                color: white;
+
+            }
+
+            #kategorien {
+                font-size: 1.1em;
+
+                font-family: input-sans, sans-serif;
+                font-weight: 500;
+                font-style: normal;
+
+                text-align: left;
+                margin-bottom: 5%;
+                margin-left: 4%;
+                z-index: 6;
+                color: #ffffff;
+                line-height: 1.2;
+                transform: rotate(-90deg);
+                transform-origin: left top 0;
+                word-spacing: 0em;
+                /*word-spacing: 0em;*/
+            }
+
+            #kurztexte {
+                text-align: left;
+                font-size: 0.9em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: #ffffff;
+                line-height: 1.4;
+                /*background-color: #5e3986;*/
+            }
+
+            #kurztexteMindscapes {
+                font-size: 0.9em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: white;
+                line-height: 1.7;
+            }
+
+            #kurztexteMindscapesSeite1 {
+                font-size: 1.2em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: white;
+                line-height: 1.7;
+                hyphens: auto;
+
+            }
+
+            #kurztexteMindscapesAufbau {
+                font-size: 0.9em;
+                font-family: input-sans, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                margin-bottom: 40%;
+                margin-left: 2%;
+                z-index: 6;
+                color: white;
+                line-height: 1.7;
+                hyphens: auto;
+
+            }
+
+
+            #sticky_logo {
+            
+            }
+
+            #footer a:link {
+                color: black;
+                background-color: transparent;
+                text-decoration: underline;
+            }
+
+            #footer a:visited {
+                color: black;
+                background-color: transparent;
+                text-decoration: underline;
+            }
+
+
+            a:link {
+                color: white;
+                background-color: transparent;
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: whitesmoke;
+                background-color: transparent;
+                text-decoration: none;
+            }
+        }
+
+    </style>
+
+
+
+    <script type="text/javascript">
+        var myFullpage = new fullpage('#fullpage', {
+            //Navigation
+
+
+            licenseKey: 'F9117993-B547494B-ACBAB2C2-9894EEFD',
+
+            menu: '#menu',
+            lockAnchors: false,
+            anchors: ['Video', 'Idee', 'Konzept', 'Wirkung', 'Datenvisualisierung', 'Video02', 'Vision'],
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['Intro'],
+            showActiveTooltip: false,
+
+
+            slidesNavigation: false,
+            slidesNavPosition: 'bottom',
+
+
+            autoScrolling: true,
+
+
+            scrollOverflow: true,
+
+            fitToSection: true,
+            fitToSectionDelay: 1000,
+            scrollingSpeed: 800,
+
+            controlArrows: false,
+            verticalCentered: false,
+
+            //responsiveSlides: true,
+
+            loopBottom: true,
+
+            parallax: false,
+            parallaxOptions: {
+                type: 'reveal',
+                percentage: 62,
+                property: 'translate'
+            },
+
+            easing: 'easeInOutCubic',
+            css3: true,
+            easingcss3: 'ease',
+
+            lazyLoading: true,
+
+
+
+
+
+            responsiveWidth: 900,
+
+
+
+
+            //Farben
+
+            sectionsColor: ['#1a1a1a', '#1a1a1a', '#1a1a1a', '#1a1a1a', '#1a1a1a', '#1a1a1a', '#1a1a1a', '#1a1a1a', '#ffffff']
+
+
+        });
+
+    </script>
+
+
+    <!-- take one link element which contains an SVG icon that we can then animate on hover.
+
+    <nav class="nav">
+        <a href="#" class="link">
+            <svg class="settings-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <g class="settings-icon__group settings-icon__group--1">
+                    <line class="settings-icon__line" x1="79.69" y1="16.2" x2="79.69" y2="83.8" />
+                    <rect class="settings-icon__rect" x="73.59" y="31.88" width="12.19" height="12.19" />
+                </g>
+                <g class="settings-icon__group settings-icon__group--2">
+                    <line class="settings-icon__line" x1="50.41" y1="16.2" x2="50.41" y2="83.8" />
+                    <rect class="settings-icon__rect" x="44.31" y="54.33" width="12.19" height="12.19" />
+                </g>
+                <g class="settings-icon__group settings-icon__group--3">
+                    <line class="settings-icon__line" x1="20.31" y1="16.2" x2="20.31" y2="83.8" />
+                    <rect class="settings-icon__rect" x="14.22" y="26.97" width="12.19" height="12.19" />
+                </g>
+            </svg>
+        </a>
+    </nav>
+
+    <div class="slide">
+
+
+
+    </div>
+
+    <div class="icon-bar">
+
+        <a href="#" class="twitter"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="#" class="behance"><i class="fa fa-behance"></i></a>
+    </div>
+         -->
+</body>
+
+</html>
