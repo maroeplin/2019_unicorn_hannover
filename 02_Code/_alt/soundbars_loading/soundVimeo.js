@@ -92,3 +92,32 @@ function soundCommand() {
     });
 
 }
+
+function soundOff() {
+
+    player.getVolume().then(function (volume) {
+        var vol = volume;
+
+       
+
+            player.setVolume(0.0).then(function (volume) {
+                // volume was set
+            }).catch(function (error) {
+                switch (error.name) {
+                    case 'RangeError':
+                        // the volume was less than 0 or greater than 1
+                        break;
+
+                    default:
+                        // some other error occurred
+                        break;
+                }
+            });
+
+        
+        // volume = the volume level of the player
+    }).catch(function (error) {
+        // an error occurred
+    });
+
+}
