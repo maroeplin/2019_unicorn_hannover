@@ -1,9 +1,9 @@
 // NACH 4 SEKUNDEN MIT LOAD_ANIMATION AUFHÖREN
-  setTimeout(function() {
+setTimeout(function () {
 
-                $('body').addClass('loaded');
+    $('body').addClass('loaded');
 
-            }, 6000);
+}, 6000);
 
 
 
@@ -12,10 +12,10 @@
 //$(document).ready(function(){
 // your code
 //var player = new Vimeo.Player('introVideo');
-    //var iframe = document.querySelector('iframe[id="introVideo"]');
+//var iframe = document.querySelector('iframe[id="introVideo"]');
 var iframe = document.querySelector('iframe');
 var player = new Vimeo.Player(iframe);
- console.log('HERE');
+console.log('HERE');
 player.setVolume(0.0);
 
 player.on('play', function () {
@@ -99,6 +99,7 @@ function soundCommand() {
 }
 
 function soundOff() {
-player.setVolume(0.0);
-
+    player.setVolume(0.0);
+    $(".bar").removeClass("bar-animation").addClass("bar-animation2");
+    document.getElementById("soundOnOff").innerHTML = "sound<br>off";
 }
